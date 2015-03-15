@@ -16,4 +16,8 @@
 
 @property NSString *playerTime;
 
+@property NSInteger counter;
+
+@property BOOL running;
+
 @end

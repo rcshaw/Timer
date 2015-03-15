@@ -68,9 +68,44 @@
     PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerTableViewCell" forIndexPath:indexPath];
     Player *player = [self.players objectAtIndex:indexPath.row];
     cell.nameLabel.text = player.playerName;
-    cell.timeLabel.text = @"Timer";
-    [cell.timeLabel sizeToFit];
+    
+
+    NSInteger count = player.counter;
+    
+    cell.timeLabel.text = [NSString stringWithFormat:@"Counter: %li", (long)count];
+
+    
+    if (player.running){
+        player.timer = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0
+                                                            target:self
+                                                          selector:@selector(updateTimer:)
+                                                      userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 player, @"value1",
+                                                                 cell, @"value2", nil]
+                                                           repeats:YES];
+
+    }
+
+    //[self.tableView reloadData];
+    //[cell.timeLabel sizeToFit];
     return cell;
+}
+
+- (void)updateTimer:(NSTimer*)theTimer {
+    Player *thePlayer = [[theTimer userInfo] objectForKey:@"value1"];
+    
+    PlayerTableViewCell *cell =[[theTimer userInfo] objectForKey:@"value2"];
+    
+    NSInteger count = thePlayer.counter;
+    
+    //cell.timeLabel.text = @"Timer";
+    
+    
+    cell.timeLabel.text = [NSString stringWithFormat:@"Counter: %li", (long)count];
+
+    
+    
+    ++thePlayer.counter;
 }
 
 /*
@@ -121,7 +156,21 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-      [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    Player *tappedItem = [self.players objectAtIndex:indexPath.row];
+    tappedItem.running = !tappedItem.running;
+    
+    //reload..not sure what this is exactly for, taken from tutorial
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+    //if running, run the timer!
+    if (tappedItem.running){
+        
+
+    }
+    
+
 }
 
 @end

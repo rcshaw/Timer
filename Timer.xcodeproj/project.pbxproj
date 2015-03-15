@@ -17,6 +17,7 @@
 		9AA4532D1AB4EF4800E95BEB /* PlayersListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA4532C1AB4EF4800E95BEB /* PlayersListTableViewController.m */; };
 		9AA453301AB4EF5C00E95BEB /* AddPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA4532F1AB4EF5C00E95BEB /* AddPlayerViewController.m */; };
 		9AA453331AB4F1FD00E95BEB /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA453321AB4F1FD00E95BEB /* Player.m */; };
+		9AA453391AB50DC900E95BEB /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA453371AB50DC900E95BEB /* PlayerTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		9AA4532F1AB4EF5C00E95BEB /* AddPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlayerViewController.m; sourceTree = "<group>"; };
 		9AA453311AB4F1FD00E95BEB /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		9AA453321AB4F1FD00E95BEB /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		9AA453361AB50DC900E95BEB /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
+		9AA453371AB50DC900E95BEB /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				9AA4530E1AB4ED3D00E95BEB /* LaunchScreen.xib */,
 				9AA452FF1AB4ED3D00E95BEB /* Supporting Files */,
 				9AA4532B1AB4EF4800E95BEB /* PlayersListTableViewController.h */,
+				9AA453361AB50DC900E95BEB /* PlayerTableViewCell.h */,
+				9AA453371AB50DC900E95BEB /* PlayerTableViewCell.m */,
 				9AA4532C1AB4EF4800E95BEB /* PlayersListTableViewController.m */,
 				9AA453311AB4F1FD00E95BEB /* Player.h */,
 				9AA453321AB4F1FD00E95BEB /* Player.m */,
@@ -236,6 +241,7 @@
 			files = (
 				9AA453301AB4EF5C00E95BEB /* AddPlayerViewController.m in Sources */,
 				9AA4532D1AB4EF4800E95BEB /* PlayersListTableViewController.m in Sources */,
+				9AA453391AB50DC900E95BEB /* PlayerTableViewCell.m in Sources */,
 				9AA453081AB4ED3D00E95BEB /* ViewController.m in Sources */,
 				9AA453051AB4ED3D00E95BEB /* AppDelegate.m in Sources */,
 				9AA453331AB4F1FD00E95BEB /* Player.m in Sources */,
@@ -430,6 +436,7 @@
 				9AA453211AB4ED3D00E95BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9AA453221AB4ED3D00E95BEB /* Build configuration list for PBXNativeTarget "TimerTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +445,7 @@
 				9AA453241AB4ED3D00E95BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

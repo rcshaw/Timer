@@ -9,6 +9,7 @@
 #import "PlayersListTableViewController.h"
 #import "Player.h"
 #import "AddPlayerViewController.h"
+#import "PlayerTableViewCell.h"
 
 @interface PlayersListTableViewController ()
 
@@ -64,9 +65,11 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
+    PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerTableViewCell" forIndexPath:indexPath];
     Player *player = [self.players objectAtIndex:indexPath.row];
-    cell.textLabel.text = player.playerName;
+    cell.nameLabel.text = player.playerName;
+    cell.timeLabel.text = @"Timer";
+    [cell.timeLabel sizeToFit];
     return cell;
 }
 

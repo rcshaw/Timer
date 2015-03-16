@@ -1,3 +1,4 @@
-Timer.xcodeproj/
+Timer.xcodeproj/*
+!Timer.xcodeproj/project.pbxproj
 Timer/Images.xcassets/
 TimerTests/

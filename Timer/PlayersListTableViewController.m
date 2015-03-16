@@ -71,8 +71,16 @@
     
 
     NSInteger count = player.counter;
+    NSNumber *theDouble = [NSNumber numberWithDouble:count];
     
-    cell.timeLabel.text = [NSString stringWithFormat:@"Counter: %li", (long)count];
+    int inputSeconds = [theDouble intValue];
+    int hours =  inputSeconds / 3600;
+    int minutes = ( inputSeconds - hours * 3600 ) / 60;
+    int seconds = inputSeconds - hours * 3600 - minutes * 60;
+    
+    NSString *theTime = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", hours, minutes, seconds];
+    
+    cell.timeLabel.text = theTime;
 
     
     if (player.running){
@@ -86,8 +94,6 @@
 
     }
 
-    //[self.tableView reloadData];
-    //[cell.timeLabel sizeToFit];
     return cell;
 }
 
@@ -98,11 +104,19 @@
     
     NSInteger count = thePlayer.counter;
     
-    //cell.timeLabel.text = @"Timer";
+    
+    NSNumber *theDouble = [NSNumber numberWithDouble:count];
+    
+    int inputSeconds = [theDouble intValue];
+    int hours =  inputSeconds / 3600;
+    int minutes = ( inputSeconds - hours * 3600 ) / 60;
+    int seconds = inputSeconds - hours * 3600 - minutes * 60;
+    
+    NSString *theTime = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", hours, minutes, seconds];
     
     
-    cell.timeLabel.text = [NSString stringWithFormat:@"Counter: %li", (long)count];
-
+    
+    cell.timeLabel.text = theTime;
     
     
     ++thePlayer.counter;
@@ -163,11 +177,9 @@
     
     //reload..not sure what this is exactly for, taken from tutorial
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    
-    //if running, run the timer!
-    if (tappedItem.running){
-        
-
+    if (!tappedItem.running){
+        [tappedItem.timer invalidate];
+        tappedItem.timer = nil;
     }
     
 

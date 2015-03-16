@@ -13,6 +13,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="ugQ-GI-xH3">
+                            <rect key="frame" x="0.0" y="64" width="600" height="179"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The leading lagger is:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrI-po-clS">
+                                    <rect key="frame" x="8" y="43" width="164" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The fastest player is:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gt8-ey-FMr">
+                                    <rect key="frame" x="8" y="109" width="159" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdH-qV-dTI">
+                                    <rect key="frame" x="239" y="43" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUv-6B-rxN">
+                                    <rect key="frame" x="239" y="109" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="JrI-po-clS" firstAttribute="leading" secondItem="gt8-ey-FMr" secondAttribute="leading" id="0bb-UT-US6"/>
+                                <constraint firstItem="JrI-po-clS" firstAttribute="top" secondItem="ugQ-GI-xH3" secondAttribute="top" constant="43" id="AIF-fV-aGT"/>
+                                <constraint firstAttribute="centerX" secondItem="gt8-ey-FMr" secondAttribute="centerX" id="Lzs-A5-FXo"/>
+                                <constraint firstItem="JrI-po-clS" firstAttribute="leading" secondItem="ugQ-GI-xH3" secondAttribute="leading" constant="8" id="b1B-gQ-QRI"/>
+                                <constraint firstAttribute="centerX" secondItem="JrI-po-clS" secondAttribute="centerX" id="cig-U4-R15"/>
+                                <constraint firstItem="gt8-ey-FMr" firstAttribute="leading" secondItem="ugQ-GI-xH3" secondAttribute="leading" constant="8" id="jR8-y7-duh"/>
+                                <constraint firstItem="gt8-ey-FMr" firstAttribute="top" secondItem="JrI-po-clS" secondAttribute="bottom" constant="45" id="lHt-u1-Sfn"/>
+                            </constraints>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="EqJ-x8-RQQ">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerTableViewCell" rowHeight="50" id="T2U-k4-Ryh" customClass="PlayerTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -69,6 +114,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="fastestPlayer" destination="YUv-6B-rxN" id="J3b-hT-Nh7"/>
+                        <outlet property="slowestPlayer" destination="CdH-qV-dTI" id="urn-Al-0Dj"/>
+                        <outlet property="tableViewReference" destination="9Qd-y5-Mdr" id="6fE-5S-yY8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oy-eh-N56" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

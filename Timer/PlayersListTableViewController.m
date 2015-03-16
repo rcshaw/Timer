@@ -27,10 +27,34 @@
     
 }
 
+/*
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.players = [[NSMutableArray alloc] init];
     [self loadInitialData];
+} 
+ */
+
+// Override the default accessors of the tableview and view
+- (UITableView*)tableView { return tableViewReference; }
+- (UIView*)view { return viewReference; }
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // instantiate the new self.view, similar to the tableview
+    self.players = [[NSMutableArray alloc] init];
+    [self loadInitialData];
+    viewReference = [[UIView alloc] initWithFrame:tableViewReference.frame];
+    [viewReference setBackgroundColor:tableViewReference.backgroundColor];
+    viewReference.autoresizingMask = tableViewReference.autoresizingMask;
+    // add it as a subview
+    [viewReference addSubview:tableViewReference];
+    
+     [self.view addSubview:myView];
+    /* remainder of viewDidLoad */
+    
 }
 
 - (void)loadInitialData {

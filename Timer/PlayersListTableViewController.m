@@ -108,9 +108,16 @@
 -(void)resetButtonClicked:(UIButton*)sender
 {
     Player *player = [self.players objectAtIndex:sender.tag];
+    //YOU CAN ONLY RESET WHEN THE TIMER IS NOT RUNNING FOR THIS PARTICULAR PLAYER.
+    if (player.running){
+        return;
+    }
+    
     player.counter = 0;
 
-    PlayerTableViewCell *cell = (PlayerTableViewCell *)[sender superview];
+    UIButton *button = (UIButton*)sender;
+    UIView *view = button.superview; //Cell contentView
+    PlayerTableViewCell *cell = (PlayerTableViewCell *)view.superview;
     
     NSInteger count = player.counter;
     NSNumber *theDouble = [NSNumber numberWithDouble:count];

@@ -4,8 +4,11 @@ This timer will keep track of the time taken per player!
 
 Finished Functionalities:
 -Adding new players
+
 -start/stop
+
 -reset
+
 -leading/fastest player
 
 TODO:

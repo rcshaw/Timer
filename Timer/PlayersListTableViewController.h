@@ -7,19 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#
 
 @interface PlayersListTableViewController : UITableViewController{
     IBOutlet UITableView *tableViewReference; // to keep a reference to the tableview
     UIView *viewReference; // a reference to the new background view
     IBOutlet UIView *myView;
+    
 }
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
 @property NSMutableArray *players;
 
-@property (weak, nonatomic) IBOutlet UILabel *slowestPlayer;
-
-@property (weak, nonatomic) IBOutlet UILabel *fastestPlayer;
+@property (weak, nonatomic) IBOutlet UILabel *slowestPlayerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fastestPlayerLabel;
 
 
 

@@ -10,8 +10,20 @@
 #import "Player.h"
 #import "AddPlayerViewController.h"
 #import "PlayerTableViewCell.h"
+#import "limits.h"
 
-@interface PlayersListTableViewController ()
+@interface PlayersListTableViewController (){
+    long min;
+    long max;
+    bool clicked;
+    UITableViewCell *currentCell;
+}
+
+@property Player *slowestPlayer;
+@property Player *fastestPlayer;
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
+
+
 
 @end
 
@@ -65,6 +77,13 @@
     Player *p2 = [[Player alloc] init];
     p2.playerName = @"Rose";
     [self.players addObject:p2];
+    
+    self.slowestPlayerLabel.text = @"None yet!";
+    self.fastestPlayerLabel.text = @"None yet!";
+    min = INT_MAX;
+    max = INT_MIN;
+    //min = 0;
+    //max = 0;
 
 }
 
@@ -86,13 +105,42 @@
     return [self.players count];
 }
 
+-(void)resetButtonClicked:(UIButton*)sender
+{
+    Player *player = [self.players objectAtIndex:sender.tag];
+    player.counter = 0;
+
+    PlayerTableViewCell *cell = (PlayerTableViewCell *)[sender superview];
+    
+    NSInteger count = player.counter;
+    NSNumber *theDouble = [NSNumber numberWithDouble:count];
+    
+    int inputSeconds = [theDouble intValue];
+    int hours =  inputSeconds / 3600;
+    int minutes = ( inputSeconds - hours * 3600 ) / 60;
+    int seconds = inputSeconds - hours * 3600 - minutes * 60;
+    
+    NSString *theTime = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", hours, minutes, seconds];
+    
+    cell.timeLabel.text = theTime;
+    
+    //apparently as of this line, the label is still not showing. so i believe i have to refresh.
+    
+    UITableView *tableView = (UITableView *)cell.superview.superview;
+    NSIndexPath *indexPath = [tableView indexPathForCell:cell];
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
 
 
+
+    //this method seems to be called at the beginning, when i first start it.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerTableViewCell" forIndexPath:indexPath];
     Player *player = [self.players objectAtIndex:indexPath.row];
     cell.nameLabel.text = player.playerName;
     
+    cell.resetButton.tag = indexPath.row;
+    [cell.resetButton addTarget:self action:@selector(resetButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
     NSInteger count = player.counter;
     NSNumber *theDouble = [NSNumber numberWithDouble:count];
@@ -115,11 +163,35 @@
                                                                  player, @"value1",
                                                                  cell, @"value2", nil]
                                                            repeats:YES];
-
+    }
+    
+    //update the slowest & fastest player here
+    min = INT_MAX;
+    max = INT_MIN;
+    if (clicked){
+        for (Player* player in self.players)
+        {
+            if (player.counter < min || player.counter == 0){
+                self.slowestPlayer = player;
+                min = player.counter;
+            }
+            if (player.counter > max){
+                self.fastestPlayer = player;
+                max = player.counter;
+            }
+        }
+    }
+    
+    
+    if (min !=INT_MAX || max != INT_MIN){
+        self.slowestPlayerLabel.text = self.slowestPlayer.playerName;
+        self.fastestPlayerLabel.text = self.fastestPlayer.playerName;
     }
 
     return cell;
 }
+
+
 
 - (void)updateTimer:(NSTimer*)theTimer {
     Player *thePlayer = [[theTimer userInfo] objectForKey:@"value1"];
@@ -144,6 +216,32 @@
     
     
     ++thePlayer.counter;
+    
+    //update fastest/slowest if someone overtook the spot
+    //update the slowest & fastest player here
+    min = INT_MAX;
+    max = INT_MIN;
+    if (clicked){
+        for (Player* player in self.players)
+        {
+            if (player.counter < min || player.counter == 0){
+                self.slowestPlayer = player;
+                min = player.counter;
+            }
+            if (player.counter > max){
+                self.fastestPlayer = player;
+                max = player.counter;
+            }
+        }
+    }
+    
+    
+    if (min !=INT_MAX || max != INT_MIN){
+        self.slowestPlayerLabel.text = self.slowestPlayer.playerName;
+        self.fastestPlayerLabel.text = self.fastestPlayer.playerName;
+    }
+    
+
 }
 
 /*
@@ -194,7 +292,9 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    clicked = true;
+    min = INT_MAX;
+    max = INT_MIN;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     Player *tappedItem = [self.players objectAtIndex:indexPath.row];
     tappedItem.running = !tappedItem.running;

@@ -179,11 +179,11 @@
         for (Player* player in self.players)
         {
             if (player.counter < min || player.counter == 0){
-                self.slowestPlayer = player;
+                self.fastestPlayer = player;
                 min = player.counter;
             }
             if (player.counter > max){
-                self.fastestPlayer = player;
+                self.slowestPlayer = player;
                 max = player.counter;
             }
         }
@@ -232,11 +232,11 @@
         for (Player* player in self.players)
         {
             if (player.counter < min || player.counter == 0){
-                self.slowestPlayer = player;
+                self.fastestPlayer = player;
                 min = player.counter;
             }
             if (player.counter > max){
-                self.fastestPlayer = player;
+                self.slowestPlayer = player;
                 max = player.counter;
             }
         }

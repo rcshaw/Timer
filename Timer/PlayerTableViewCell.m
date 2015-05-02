@@ -13,6 +13,8 @@
 @synthesize timeLabel = _timeLabel;
 @synthesize resetButton = _resetButton;
 
+
+
 - (void)awakeFromNib {
     // Initialization code
 }

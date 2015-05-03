@@ -72,13 +72,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqE-4l-rBv">
-                                            <rect key="frame" x="340" y="14" width="38" height="21"/>
+                                            <rect key="frame" x="170" y="14" width="38" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lo-vn-RVR">
-                                            <rect key="frame" x="404" y="10" width="40" height="30"/>
+                                            <rect key="frame" x="446" y="10" width="40" height="30"/>
                                             <state key="normal" title="Reset">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -86,15 +86,15 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="nAv-sk-uBY" firstAttribute="leading" secondItem="sE7-RT-hB3" secondAttribute="leadingMargin" constant="5" id="82H-AQ-wkl"/>
-                                        <constraint firstItem="fqE-4l-rBv" firstAttribute="leading" secondItem="sE7-RT-hB3" secondAttribute="leading" constant="227" id="BQt-Rp-1LF"/>
+                                        <constraint firstItem="fqE-4l-rBv" firstAttribute="baseline" secondItem="nAv-sk-uBY" secondAttribute="baseline" id="Dhr-aU-6R2"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="1lo-vn-RVR" secondAttribute="bottom" constant="1" id="GHf-Df-qTi"/>
-                                        <constraint firstItem="1lo-vn-RVR" firstAttribute="leading" secondItem="fqE-4l-rBv" secondAttribute="trailing" constant="15" id="Iex-MA-L83"/>
+                                        <constraint firstItem="1lo-vn-RVR" firstAttribute="leading" secondItem="fqE-4l-rBv" secondAttribute="trailing" constant="40" id="Iex-MA-L83"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="fqE-4l-rBv" secondAttribute="trailing" constant="327" id="MCK-b6-yc3"/>
                                         <constraint firstItem="1lo-vn-RVR" firstAttribute="top" secondItem="sE7-RT-hB3" secondAttribute="topMargin" constant="2" id="Nmn-Mt-sEe"/>
-                                        <constraint firstAttribute="centerY" secondItem="fqE-4l-rBv" secondAttribute="centerY" id="OFH-6y-Oi2"/>
                                         <constraint firstAttribute="centerX" secondItem="nAv-sk-uBY" secondAttribute="centerX" id="dgj-qU-fec"/>
                                         <constraint firstItem="nAv-sk-uBY" firstAttribute="leading" secondItem="sE7-RT-hB3" secondAttribute="leadingMargin" constant="10" id="peX-5O-P64"/>
                                         <constraint firstAttribute="centerY" secondItem="nAv-sk-uBY" secondAttribute="centerY" id="r7d-gQ-A6k"/>
+                                        <constraint firstAttribute="centerX" secondItem="fqE-4l-rBv" secondAttribute="centerX" id="y5h-Sm-wEL"/>
                                         <constraint firstAttribute="centerX" secondItem="fqE-4l-rBv" secondAttribute="centerX" id="yds-YT-YZH"/>
                                     </constraints>
                                     <variation key="default">

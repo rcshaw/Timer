@@ -84,6 +84,8 @@
     max = INT_MIN;
     //min = 0;
     //max = 0;
+    
+
 
 }
 
@@ -152,6 +154,7 @@
     NSInteger count = player.counter;
     NSNumber *theDouble = [NSNumber numberWithDouble:count];
     
+    
     int inputSeconds = [theDouble intValue];
     int hours =  inputSeconds / 3600;
     int minutes = ( inputSeconds - hours * 3600 ) / 60;
@@ -160,10 +163,11 @@
     NSString *theTime = [NSString stringWithFormat:@"%.2d:%.2d:%.2d", hours, minutes, seconds];
     
     cell.timeLabel.text = theTime;
+     
 
     
     if (player.running){
-        player.timer = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0
+        player.timer = [NSTimer scheduledTimerWithTimeInterval:1
                                                             target:self
                                                           selector:@selector(updateTimer:)
                                                       userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -204,7 +208,7 @@
     Player *thePlayer = [[theTimer userInfo] objectForKey:@"value1"];
     
     PlayerTableViewCell *cell =[[theTimer userInfo] objectForKey:@"value2"];
-    
+    ++thePlayer.counter;
     NSInteger count = thePlayer.counter;
     
     
@@ -221,8 +225,6 @@
     
     cell.timeLabel.text = theTime;
     
-    
-    ++thePlayer.counter;
     
     //update fastest/slowest if someone overtook the spot
     //update the slowest & fastest player here

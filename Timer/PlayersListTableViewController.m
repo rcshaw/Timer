@@ -65,7 +65,9 @@
     [viewReference addSubview:tableViewReference];
     
      [self.view addSubview:myView];
+    [UIButton buttonWithType:UIButtonTypeSystem]; 
     /* remainder of viewDidLoad */
+    
     
 }
 
@@ -144,6 +146,9 @@
 
     //this method seems to be called at the beginning, when i first start it.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+
+    
     PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerTableViewCell" forIndexPath:indexPath];
     Player *player = [self.players objectAtIndex:indexPath.row];
     cell.nameLabel.text = player.playerName;
@@ -316,6 +321,11 @@
     }
     
 
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 @end

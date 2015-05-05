@@ -14,8 +14,11 @@
 
 @implementation AddPlayerViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view.
 }
 
@@ -38,6 +41,8 @@
         self.player.playerName = self.playerNameField.text;
     }
 }
+
+
 
 
 @end

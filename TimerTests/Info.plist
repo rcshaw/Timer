@@ -20,5 +20,16 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MYRIADPRO-REGULAR.OTF</string>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Condensed.ttf</string>
+		<string>Roboto-Light.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Thin.ttf</string>
+	</array>
 </dict>
 </plist>

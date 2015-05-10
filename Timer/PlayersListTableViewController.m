@@ -172,6 +172,7 @@
 
     
     if (player.running){
+        cell.timeLabel.textColor = [UIColor greenColor];
         player.timer = [NSTimer scheduledTimerWithTimeInterval:1
                                                             target:self
                                                           selector:@selector(updateTimer:)
@@ -179,6 +180,8 @@
                                                                  player, @"value1",
                                                                  cell, @"value2", nil]
                                                            repeats:YES];
+    } else{
+        cell.timeLabel.textColor = [UIColor blackColor];
     }
     
     //update the slowest & fastest player here
@@ -317,6 +320,9 @@
     if (!tappedItem.running){
         [tappedItem.timer invalidate];
         tappedItem.timer = nil;
+    } else{
+       // tappedItem.
+       // label.textColor = [UIColor redColor];
     }
     
 

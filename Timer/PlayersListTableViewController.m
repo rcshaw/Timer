@@ -16,12 +16,14 @@
     long min;
     long max;
     bool clicked;
-    UITableViewCell *currentCell;
+    //UITableViewCell *currentCell;
 }
 
 @property Player *slowestPlayer;
 @property Player *fastestPlayer;
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
+@property Player *currentPlayer;
+@property PlayerTableViewCell *currentPlayerCell;
 
 
 
@@ -171,6 +173,9 @@
      
 
     
+    //this snippet is only being called for a specific row as it's being tapped. If i want a tap on a row
+    //to affect ANOTHER row (such as the new feature of tapping on a row stopping another row, I can't
+    //rely on this.
     if (player.running){
         cell.timeLabel.textColor = [UIColor greenColor];
         player.timer = [NSTimer scheduledTimerWithTimeInterval:1
@@ -312,19 +317,37 @@
     min = INT_MAX;
     max = INT_MIN;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    Player *tappedItem = [self.players objectAtIndex:indexPath.row];
-    tappedItem.running = !tappedItem.running;
+    
+    PlayerTableViewCell *tappedCell = [tableView dequeueReusableCellWithIdentifier:@"PlayerTableViewCell" forIndexPath:indexPath];
+    
+    Player *tappedPlayer = [self.players objectAtIndex:indexPath.row];
+    
+    //adding functionality-if a player is running, then the user taps another player, STOP the
+    //current player, and start the new tapped player
+    if (tappedPlayer != self.currentPlayer){
+        //only if the current player is running, do i want to stop it
+        if (self.currentPlayer.running){
+            [self.currentPlayer.timer invalidate];
+            self.currentPlayer.timer = nil;
+            self.currentPlayer.running = false;
+            self.currentPlayerCell.timeLabel.textColor = [UIColor blackColor];
+        }
+    }
+    
+    self.currentPlayer = tappedPlayer;
+    self.currentPlayerCell = tappedCell;
+    
+   
+    tappedPlayer.running = !tappedPlayer.running;
     
     //reload..not sure what this is exactly for, taken from tutorial
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    if (!tappedItem.running){
-        [tappedItem.timer invalidate];
-        tappedItem.timer = nil;
-    } else{
-       // tappedItem.
-       // label.textColor = [UIColor redColor];
-    }
     
+    //stopping the timer
+    if (!tappedPlayer.running){
+        [tappedPlayer.timer invalidate];
+        tappedPlayer.timer = nil;
+    }
 
 }
 

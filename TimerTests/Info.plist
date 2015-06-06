@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.example.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>com.roseshaw.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -20,8 +20,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<true/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MYRIADPRO-REGULAR.OTF</string>
@@ -31,5 +29,7 @@
 		<string>Roboto-Regular.ttf</string>
 		<string>Roboto-Thin.ttf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

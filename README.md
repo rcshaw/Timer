@@ -8,10 +8,10 @@ Finished Functionalities:
 * start/stop
 * reset
 * leading/fastest player
+* swipe left to delete a player
 
 TODO:
 
-* swipe left to delete a player
 * change add player to modal (Justin's wishes)
 * ability to manually input a time (in case of accidental reset, or something)
   this could be done maybe through a hold gesture
